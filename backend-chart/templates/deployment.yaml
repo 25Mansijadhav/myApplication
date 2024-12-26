@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      type: back
+  template:
+    metadata:
+      labels:
+        type: back
+    spec:
+      containers:
+        - name: container1
+          image: mansi0011/back
+          ports:
+            - containerPort: 4000
